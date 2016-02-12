@@ -1,0 +1,38 @@
+{
+  "name": "cuke-cluster-js",
+  "version": "0.1.0",
+  "description": "Clustered Cucumber-js for parallelized tests",
+  "main": "main.js",
+  "scripts": {
+    "test": "jshint . --exclude ./node_modules"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/midniteio/cuke-cluster.git"
+  },
+  "keywords": [
+    "cucumber",
+    "cucumberjs",
+    "parallel",
+    "test",
+    "cluster"
+  ],
+  "author": "Ian Fleming <ian@midnite.io>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/midniteio/cuke-cluster/issues"
+  },
+  "homepage": "https://github.com/midniteio/cuke-cluster#readme",
+  "dependencies": {
+    "bluebird": "^3.3.0",
+    "commander": "^2.9.0",
+    "cucumber": "^0.9.4",
+    "fs-extra": "^0.26.5",
+    "gherkin": "^3.2.0",
+    "lodash": "^4.3.0",
+    "pretty-ms": "^2.1.0"
+  },
+  "devDependencies": {
+    "jshint": "^2.9.1"
+  }
+}
