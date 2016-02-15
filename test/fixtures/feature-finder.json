@@ -1,0 +1,51 @@
+{
+  "default": {
+    "paths": ["test/features"],
+    "tags": [],
+    "requires": [],
+    "cucumberPath": "../../node_modules/cucumber",
+    "workers": 1
+  },
+  "tagged": {
+    "paths": ["test/features"],
+    "tags": ["@UnitTest"],
+    "requires": [],
+    "cucumberPath": "../../node_modules/cucumber",
+    "workers": 1
+  },
+  "negatedTag": {
+    "paths": ["test/features"],
+    "tags": ["~@Ignore"],
+    "requires": [],
+    "cucumberPath": "../../node_modules/cucumber",
+    "workers": 1
+  },
+  "multipleTags": {
+    "paths": ["test/features"],
+    "tags": ["@UnitTest", "@Secondary"],
+    "requires": [],
+    "cucumberPath": "../../node_modules/cucumber",
+    "workers": 1
+  },
+  "mixedTags": {
+    "paths": ["test/features"],
+    "tags": ["@UnitTest", "~@Ignore"],
+    "requires": [],
+    "cucumberPath": "../../node_modules/cucumber",
+    "workers": 1
+  },
+  "featurePath": {
+    "paths": ["test/features/sample.feature"],
+    "tags": [],
+    "requires": [],
+    "cucumberPath": "../../node_modules/cucumber",
+    "workers": 1
+  },
+  "multiplePaths": {
+    "paths": ["test/features/sample.feature", "test/features/sample2.feature"],
+    "tags": [],
+    "requires": [],
+    "cucumberPath": "../../node_modules/cucumber",
+    "workers": 1
+  }
+}

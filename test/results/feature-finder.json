@@ -1,0 +1,36 @@
+{
+  "default": [
+    "test/features/sample.feature:7",
+    "test/features/sample.feature:11",
+    "test/features/sample.feature:14",
+    "test/features/sample2.feature:4"
+  ],
+  "tagged": [
+    "test/features/sample.feature:7",
+    "test/features/sample.feature:11",
+    "test/features/sample2.feature:4"
+  ],
+  "negatedTag": [
+    "test/features/sample.feature:7",
+    "test/features/sample.feature:14",
+    "test/features/sample2.feature:4"
+  ],
+  "multipleTags": [
+    "test/features/sample.feature:7"
+  ],
+  "mixedTags": [
+    "test/features/sample.feature:7",
+    "test/features/sample2.feature:4"
+  ],
+  "featurePath": [
+    "test/features/sample.feature:7",
+    "test/features/sample.feature:11",
+    "test/features/sample.feature:14"
+  ],
+  "multiplePaths": [
+    "test/features/sample.feature:7",
+    "test/features/sample.feature:11",
+    "test/features/sample.feature:14",
+    "test/features/sample2.feature:4"
+  ]
+}
