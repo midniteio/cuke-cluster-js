@@ -35,7 +35,7 @@ It is important to note that cuke-cluster-js defers to the installed version of 
 
 
 ### Differences from standard Cucumber-js
-To best consolidate the data of all scenario runs into meaningful test results, cuke-cluster-js runs Cucumber with the json formatter, and the results parsed back to pretty formatting for readability by `lib/parsers/pretty.js`. The standard cucumber-js formatters would have formatting and/or redundancy issues, so are not supported (at this time) and ignored here.
+To best consolidate the data of all scenario runs into meaningful test results, cuke-cluster-js runs Cucumber with the json formatter, and the results parsed back to pretty formatting for readability by `lib/parsers/pretty`. The standard cucumber-js formatters would have formatting and/or redundancy issues, so are not supported (at this time) and ignored here. Additional parsers can be added using the same API as defined in `lib/parsers/pretty`.
 
 cuke-cluster-js also explicitly silences the stdio channels of the workers. Errors are still caught and surfaced in the worker's execution, but this prevents the test/step definitions from throwing errors to stdout in real-time as other tests run in parallel (and potentially creating very unclear logs). Additional/debug logging past error handling can alternatively be handled by having a debug log piped to file from step definitions, which serves a better purpose than writing to stdout and would not be affected by cuke-cluster-js.
 
