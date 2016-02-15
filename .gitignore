@@ -1,2 +1,3 @@
 node_modules
-.cuke_cluster
+.cuke-cluster-logs
+features

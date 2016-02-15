@@ -5,6 +5,7 @@ const _ = require('lodash');
 const cpus = require('os').cpus().length;
 
 const cli = require('./lib/cli');
+const parser = require('./lib/parsers').pretty;
 
 // Run if invoked from command line with CLI args
 if (!module.parent) {
@@ -27,14 +28,14 @@ function run(options) {
       cucumberPath: require.resolve('cucumber'),
       workers: cpus
     });
-    
-    process.env.LOG_DIR = path.join(process.cwd(), '.cuke-cluster');
+
+    process.env.LOG_DIR = path.join(process.cwd(), '.cuke-cluster-logs');
     fs.ensureDir(process.env.LOG_DIR);
 
     if(cluster.isMaster) {
-      resolve(require('./lib/master')(cluster, options));
+      resolve(require('./lib/master')(cluster, options, parser));
     } else {
-      require('./lib/worker')(cluster, options);
+      require('./lib/worker')(cluster, options, parser);
     }
   });
 }
