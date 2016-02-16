@@ -3,7 +3,7 @@
 
 It utilizes the Gherkin JS module as a parser to determine the entire set of scenarios that fit the passed arguments and spins up workers to run each- up to the number of available OS processor, or alternatively the passed number of workers (lesser of the two). As a test worker ends, a new worker is spun up to handle the next scenario on the stack, until empty.
 
-### Using cuke-cluster-js from another Node modules
+### Using cuke-cluster-js from another Node module
 cuke-cluster-js is easily called from within your NodeJS source like any other NPM module:
 ```javascript
 const cukeCluster = require('cuke-cluster-js');
@@ -22,12 +22,47 @@ cuke-cluster-js takes an options object as a parameter, but when none is passed 
   workers: require('os').cpus().length
 }
 ```
-The options object passed is extended with default values via lodash's `_.default()` utility, so passing all options are not required, and passing simply `{ paths: ['otherFeatureDir'] }` or `{ workers: 4 }` is as valid as passing all options.
+The options object passed is extended with default values via lodash's `_.default()` utility, so passing all options are not required, and passing simply
+```javscript
+{ paths: ['otherFeatureDir'] }
+```
+or
+```javascript
+{
+  tags: ['@Smoke'],
+  workers: 4
+}
+```
+is as valid as passing all options.
 
 ### Using cuke-cluster-js from command line
-cuke-cluster-js comes ready to use from command line. It supports arguments of both feature paths, or directory paths that contain features (including multiple paths), the `-t`/`--tag` and `-r`/`--require` flags just as they are defined by [cucumber-js](https://github.com/cucumber/cucumber-js), a `-c` or `--cucumber` flag to specify using a specific cucumber installation, and a `-w` or `--workers` flag to set the number of workers in parallel at a given time (defaults to the number of processors if none passed).
+cuke-cluster-js comes ready to use from command line. It supports arguments of both feature paths and directory paths that contain features (including multiple paths), as well as the following tags:
+```
 
+  -t, --tag       Scenario tag, as defined by cucumber-js
+  -r, --require   Require flag, to specify non-default files to require, as defined by cucumber-js
+  -c, --cucumber  Specify using a specific cucumber installation
+  -w, --workers   Number of workers in parallel at a given time (defaults to the number of processors if none passed).
+
+```
 All of the above options can also be found by using the `--help` flag on the command line.
+
+Examples valid command from the command line (assuming cuke-cluster-js is globally installed with `npm install -g cuke-cluster-js`):
+
+With default options, being run inside a directory with a `features` directory containing feature files.
+```
+cuke-cluster-js
+```
+
+Specifying a specific path to feature files, and using only the `@Smoke` tag
+```
+cuke-cluster-js path/to/features -t @Smoke
+```
+
+(Multiple) specific individual feature files
+```
+cuke-cluster-js some-features/test1.feature other-feature/test2.feature
+```
 
 It does not support the formatter flag currently available in cucumber-js' CLI, as parsing of the output of multiple concurrent jobs acts differently than a single thread. See below for more information.
 
