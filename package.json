@@ -29,6 +29,7 @@
     "cucumber": "^0.9.4",
     "fs-extra": "^0.26.5",
     "gherkin": "^3.2.0",
+    "glob": "^7.0.0",
     "lodash": "^4.3.0",
     "pretty-ms": "^2.1.0"
   },
