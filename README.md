@@ -1,4 +1,15 @@
 # cuke-cluster-js
+
+
+## cuke-cluster-js is no longer supported for development. ##
+### Please see https://github.com/midniteio/multi-cuke for future development ###
+
+An inherit issue with using cluster as your worker/process coordinator occurs if your tests require spawning a server that listens to port 0 for dynamic port allocation. The cluster api has specific handling around this and some other IO communication channels that make it not ideal for generic handling of processes. As it's built on top child_process.fork(), it's safer and more flexible to reimplement this parallelization utilizing that. https://github.com/midniteio/multi-cuke is built on that principle, using this repository as a springboard, and it's advised to use that module in place of cuke-cluster-js now.
+
+
+
+#### Archived for reference ####
+
 `cuke-cluster-js` is an implementation for parallelized Cucumber-js testing using Node's Cluster API.
 
 It utilizes the Gherkin JS module as a parser to determine the entire set of scenarios that fit the passed arguments and spins up workers to run each- up to the number of available OS processor, or alternatively the passed number of workers (lesser of the two). As a test worker ends, a new worker is spun up to handle the next scenario on the stack, until empty.
