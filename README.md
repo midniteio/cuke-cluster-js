@@ -3,6 +3,14 @@
 
 An inherit issue with using cluster as your worker/process coordinator occurs if your tests require spawning a server that listens to port 0 for dynamic port allocation. The cluster api has specific handling around this and some other IO communication channels that make it not ideal for generic handling of processes. As it's built on top child_process.fork(), it's safer and more flexible to reimplement this parallelization utilizing that. https://github.com/midniteio/multi-cuke is built on that principle, using this repository as a springboard, and it's advised to use that module in place of cuke-cluster-js now.
 
+
+##### Why not continue in this repository, why effectively fork and kill this module? #####
+
+
+'cluster' has a very specific meaning when it comes to NodeJS, and as such it would be wrong, or at least very confusing, to continue development in a module whose name implies the cluster api while no longer using it.
+
+
+
 ---
 
 
